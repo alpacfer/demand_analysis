@@ -186,7 +186,7 @@ else:
     ft3_pct = bac_pct = others_pct = 0
 
 # Create pie chart with enhanced styling
-plt.figure(facecolor='white', figsize=(14, 8))
+plt.figure(facecolor='white', figsize=(14, 8))  # Matched to other plots
 ax = plt.gca()
 ax.set_facecolor('white')
 
@@ -206,22 +206,23 @@ legend_labels = [f'{name}\n{value:.0f} units ({pct:.1f}%)'
 patches, _ = plt.pie(sizes, colors=colors, startangle=90,
                     wedgeprops={'edgecolor': 'white', 'linewidth': 2})
 
-# Add legend to the right side
+# Add legend with consistent styling
 plt.legend(patches, legend_labels,
           title="Instrument Distribution",
-          title_fontsize=14,
-          fontsize=12,
+          title_fontsize=12,
+          fontsize=10,
           loc="center left",
-          bbox_to_anchor=(1, 0.5))
+          bbox_to_anchor=(1.0, 0.5),
+          framealpha=0.9)  # Match other plots' legend transparency
 
-plt.title("Market Share Distribution by Instrument Type", 
-         pad=20, fontsize=14, fontweight='bold')
+plt.title("Market Share Distribution\nMilkoScan™ FT3 and BacSomatic™", 
+         pad=20, fontsize=14, fontweight='bold')  # Match other plots' title style
 
 # Ensure the pie chart is circular
 plt.axis('equal')
 
 # Adjust layout to prevent legend cropping
-plt.tight_layout()
+plt.tight_layout(rect=[0, 0, 0.85, 1])  # Adjusted for larger figure size
 plt.savefig(os.path.join(plots_dir, 'market_share_pie.png'), 
             dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
