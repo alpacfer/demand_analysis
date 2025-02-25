@@ -109,6 +109,9 @@ data = pd.read_csv(file_path, encoding='Windows-1252')
 # Ensure the OrderDate column is in datetime format
 data['OrderDate'] = pd.to_datetime(data['OrderDate'], format='%d-%m-%y')
 
+# Convert the Qty. column to numeric to avoid string operations later
+data['Qty.'] = pd.to_numeric(data['Qty.'], errors='coerce').fillna(0)
+
 # Filter data for the specific instruments, including variations
 filtered_data = data[data['Instrument'].str.contains('MilkoScan™ FT3|BacSomatic™', na=False, case=False)]
 
@@ -151,8 +154,8 @@ for instrument in ['MilkoScan™ FT3', 'BacSomatic™']:
                 color=instrument_colors[instrument])
 
 set_consistent_date_axis(ax, weekly_data.index)
-apply_consistent_style(ax, "Weekly Demand Trends\nMilkoScan™ FT3 and BacSomatic™", 
-                      "Month", "Quantity Ordered", "Instrument")
+apply_consistent_style(ax, "Weekly Demand Trends by Units\nMilkoScan™ FT3 and BacSomatic™", 
+                      "Date", "Number of Units Ordered", "Instrument")
 
 plt.savefig(os.path.join(plots_dir, 'weekly_demand_smoothed.png'), dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
@@ -170,6 +173,60 @@ print(weekly_data.mean())
 
 print("\n=== HEAD OF RATIO TIME SERIES ===")
 print(weekly_data['Ratio_MilkoScan_to_BacSomatic'].head())
+
+# Calculate total sales by instrument
+total_sales_by_instrument = data.groupby('Instrument')['Qty.'].sum()
+total_units_sold = total_sales_by_instrument.sum()
+
+# Calculate market share - simplified version focused on FT3 and BacSomatic
+total_units_sold = data['Qty.'].sum()
+ft3_units = data[data['Instrument'].str.contains('MilkoScan™ FT3', na=False)]['Qty.'].sum()
+bac_units = data[data['Instrument'].str.contains('BacSomatic™', na=False)]['Qty.'].sum()
+other_units = total_units_sold - ft3_units - bac_units
+
+# Calculate percentages
+ft3_share = (ft3_units / total_units_sold * 100) if total_units_sold > 0 else 0
+bac_share = (bac_units / total_units_sold * 100) if total_units_sold > 0 else 0
+other_share = (other_units / total_units_sold * 100) if total_units_sold > 0 else 0
+
+# Print market share information
+print("\n=== Market Share Analysis ===")
+print(f"MilkoScan FT3: {ft3_share:.1f}% ({int(ft3_units)} units)")
+print(f"BacSomatic: {bac_share:.1f}% ({int(bac_units)} units)")
+print(f"Other Products: {other_share:.1f}% ({int(other_units)} units)")
+print(f"Total: {int(total_units_sold)} units")
+
+# Create pie chart of market share - simplified version
+plt.figure(figsize=(12, 8))
+market_data = [ft3_units, bac_units, other_units]
+labels = [f'MilkoScan FT3 ({ft3_share:.1f}%, {int(ft3_units)} units)', 
+          f'BacSomatic ({bac_share:.1f}%, {int(bac_units)} units)', 
+          f'Other Products ({other_share:.1f}%, {int(other_units)} units)']
+colors = [instrument_colors.get('MilkoScan™ FT3', colors[0]), 
+          instrument_colors.get('BacSomatic™', colors[1]), 
+          'lightgray']
+
+# Create donut chart with no labels inside
+wedges, _ = plt.pie(market_data, colors=colors, startangle=90, 
+                    wedgeprops=dict(width=0.5, edgecolor='white'),
+                    labels=[''] * len(market_data))  # Empty labels
+
+# Add legend with percentages and units
+plt.legend(wedges, labels,
+          title="Market Share Distribution (By Units Sold)",
+          loc="center left",
+          bbox_to_anchor=(1, 0.5))
+
+plt.title("Market Share Distribution by Units", pad=20, fontsize=16, fontweight='bold')
+
+# Ensure the pie chart appears circular
+plt.axis('equal')
+
+# Adjust layout to ensure legend is visible
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'market_share.png'), 
+            dpi=300, bbox_inches='tight', facecolor='white')
+plt.close()
 
 # Visualization 2: Ratio over time
 fig, ax = plt.subplots(figsize=(14, 8), facecolor='white')
@@ -196,8 +253,8 @@ for instrument in ['MilkoScan™ FT3', 'BacSomatic™']:
                 color=instrument_colors[instrument])
 
 set_consistent_date_axis(ax, weekly_data.index)
-apply_consistent_style(ax, "Cumulative Demand Analysis\nMilkoScan™ FT3 and BacSomatic™", 
-                      "Date", "Cumulative Quantity", "Instrument")
+apply_consistent_style(ax, "Cumulative Demand Analysis by Units\nMilkoScan™ FT3 and BacSomatic™", 
+                      "Date", "Cumulative Units", "Instrument")
 
 plt.savefig(os.path.join(plots_dir, 'cumulative_demand.png'), dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
