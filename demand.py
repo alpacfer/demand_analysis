@@ -3,6 +3,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 from datetime import datetime
+import seaborn as sns
+
+# Set up consistent styling with seaborn
+sns.set_theme(style="whitegrid")
+colors = sns.color_palette("Set1")
+plt.rcParams.update({
+    'font.size': 12,
+    'axes.titlesize': 14,
+    'axes.titleweight': 'bold',
+    'figure.figsize': [12, 8],
+    'lines.linewidth': 2,
+    'lines.markersize': 8,
+})
 
 # Create a directory to save plots if it doesn't exist
 plots_dir = 'plots'
@@ -50,74 +63,23 @@ for refurbished in valid_refurbished:
 # Resample the data by week to smooth trends
 weekly_data = pivot_data.resample('W').sum()
 
-# Plot the smoothed data with weekly aggregation and enforce all months on the x-axis
+# First visualization (Weekly demand smoothed)
 plt.figure(figsize=(14, 8))
-colors = ['#1f77b4', '#ff7f0e']  # Specific colors for instruments
-
-for color, instrument in zip(colors, weekly_data.columns):
-    plt.plot(
-        weekly_data.index,
-        weekly_data[instrument],
-        label=instrument,
-        color=color,
-        marker='o'
-    )
+sns.lineplot(data=weekly_data[['MilkoScan™ FT3', 'BacSomatic™']], dashes=False, markers=True, 
+             linewidth=2.5, markersize=8, palette=colors[:2])
 
 # Enforce monthly labels on the x-axis
 plt.gca().xaxis.set_major_locator(plt.matplotlib.dates.MonthLocator())
 plt.gca().xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%b %Y'))
 plt.gcf().autofmt_xdate()
 
-# Add titles and labels
-plt.title("Weekly Demand of MilkoScan™ FT3 and BacSomatic™ Over the Last Year (Smoothed)")
-plt.xlabel("Month")
-plt.ylabel("Quantity Ordered")
-plt.legend(title="Instrument")
-plt.grid()
+plt.title("Weekly Demand Trends\nMilkoScan™ FT3 and BacSomatic™", pad=20)
+plt.xlabel("Month", labelpad=10)
+plt.ylabel("Quantity Ordered", labelpad=10)
+plt.legend(title="Instrument", title_fontsize=12, fontsize=10, framealpha=0.9)
 plt.tight_layout()
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'weekly_demand_smoothed.png'), dpi=300)
+plt.savefig(os.path.join(plots_dir, 'weekly_demand_smoothed.png'), dpi=300, bbox_inches='tight')
 plt.close()
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-
-# Load the dataset
-file_path = 'demand_data.csv'
-data = pd.read_csv(file_path, encoding='Windows-1252')
-
-# Ensure the OrderDate column is in datetime format
-data['OrderDate'] = pd.to_datetime(data['OrderDate'], format='%d-%m-%y')
-
-# Filter data for specific instruments, including variations
-filtered_data = data[data['Instrument'].str.contains('MilkoScan™ FT3|BacSomatic™', na=False, case=False)]
-
-# Convert the 'Qty.' column to numeric, forcing non-numeric entries to NaN and replacing with 0
-filtered_data['Qty.'] = pd.to_numeric(filtered_data['Qty.'], errors='coerce').fillna(0)
-
-# Group by Instrument and OrderDate, summing the quantities
-grouped_data = filtered_data.groupby(['Instrument', 'OrderDate']).agg({'Qty.': 'sum'}).reset_index()
-
-# Pivot data for analysis and plotting
-pivot_data = grouped_data.pivot(index='OrderDate', columns='Instrument', values='Qty.').fillna(0)
-
-# Combine MilkoScan™ FT3 variations
-if 'MilkoScan™ FT3?' in pivot_data.columns:
-    pivot_data['MilkoScan™ FT3'] += pivot_data['MilkoScan™ FT3?']
-    pivot_data.drop(columns=['MilkoScan™ FT3?'], inplace=True, errors='ignore')
-
-# Integrate refurbished data into respective instruments
-for col in pivot_data.columns:
-    if 'Refurbished' in col:
-        base_col = col.replace(' Refurbished', '')
-        if base_col in pivot_data.columns:
-            pivot_data[base_col] += pivot_data[col]
-        pivot_data.drop(columns=[col], inplace=True)
-
-# Resample the data by week to smooth trends
-weekly_data = pivot_data.resample('W').sum()
 
 # Calculate ratio of MilkoScan FT3 to BacSomatic demand
 weekly_data['Ratio_MilkoScan_to_BacSomatic'] = weekly_data['MilkoScan™ FT3'] / weekly_data['BacSomatic™']
@@ -136,75 +98,53 @@ print(weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].corr())
 print("\n=== HEAD OF RATIO TIME SERIES ===")
 print(weekly_data['Ratio_MilkoScan_to_BacSomatic'].head())
 
-# Visualization 1: Weekly demand trends
-plt.figure(figsize=(14, 6))
-for instrument in ['MilkoScan™ FT3', 'BacSomatic™']:
-    plt.plot(weekly_data.index, weekly_data[instrument], label=instrument, marker='o')
-plt.title("Weekly Demand for MilkoScan™ FT3 and BacSomatic™")
-plt.xlabel("Week")
-plt.ylabel("Quantity Ordered")
-plt.legend()
-plt.grid()
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'weekly_demand_trends.png'), dpi=300)
-plt.close()
-
 # Visualization 2: Ratio over time
-plt.figure(figsize=(14, 4))
-plt.plot(weekly_data.index, weekly_data['Ratio_MilkoScan_to_BacSomatic'], label='MilkoScan FT3 / BacSomatic ratio', color='purple', marker='o')
-plt.axhline(1, linestyle='--', color='gray', label='Equal Demand')
-plt.title("Weekly Ratio: MilkoScan™ FT3 to BacSomatic™")
-plt.xlabel("Week")
-plt.ylabel("Ratio")
-plt.legend()
-plt.grid()
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'ratio_over_time.png'), dpi=300)
+plt.figure(figsize=(14, 6))
+sns.lineplot(x=weekly_data.index, y=weekly_data['Ratio_MilkoScan_to_BacSomatic'], 
+             color=colors[2], marker='o', markersize=8, linewidth=2.5)
+plt.axhline(1, linestyle='--', color='gray', alpha=0.8, label='Equal Demand')
+plt.title("Demand Ratio Analysis\nMilkoScan™ FT3 to BacSomatic™", pad=20)
+plt.xlabel("Date", labelpad=10)
+plt.ylabel("Ratio", labelpad=10)
+plt.legend(fontsize=10, framealpha=0.9)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'ratio_over_time.png'), dpi=300, bbox_inches='tight')
 plt.close()
 
 # Visualization 3: Correlation heatmap
+plt.figure(figsize=(8, 6))
 correlation = weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].corr()
-plt.figure(figsize=(6, 5))  # Define a new figure size explicitly
-plt.matshow(correlation, cmap='coolwarm', fignum=None)
-plt.colorbar()
-plt.xticks(range(correlation.shape[1]), correlation.columns, rotation=45)
-plt.yticks(range(correlation.shape[0]), correlation.columns)
-plt.title("Correlation Matrix", pad=20)
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'correlation_heatmap.png'), dpi=300)
+sns.heatmap(correlation, annot=True, cmap="RdBu_r", vmin=-1, vmax=1, 
+            annot_kws={"size": 12}, square=True, fmt=".2f")
+plt.title("Correlation Analysis", pad=20)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'correlation_heatmap.png'), dpi=300, bbox_inches='tight')
 plt.close()
 
 # Visualization 4: Cross-correlation (interaction analysis)
+plt.figure(figsize=(12, 6))
 lags = np.arange(-8, 9)
 cross_corr = [weekly_data['MilkoScan™ FT3'].corr(weekly_data['BacSomatic™'].shift(lag)) for lag in lags]
-plt.figure(figsize=(12, 6))
-plt.bar(lags, cross_corr, color='green')
-plt.axhline(0, color='black', linewidth=0.8)
-plt.title("Cross-correlation: MilkoScan™ FT3 vs. BacSomatic™ by Lag")
-plt.xlabel("Lag (Weeks): negative means BacSomatic leads, positive means MilkoScan leads")
-plt.ylabel("Correlation")
-plt.grid()
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'cross_correlation.png'), dpi=300)
+sns.barplot(x=lags, y=cross_corr, color=colors[0], alpha=0.7)
+plt.axhline(0, color='gray', linewidth=1, linestyle='--')
+plt.title("Cross-correlation Analysis\nMilkoScan™ FT3 vs. BacSomatic™", pad=20)
+plt.xlabel("Lag (Weeks)\nNegative: BacSomatic leads, Positive: MilkoScan leads", labelpad=10)
+plt.ylabel("Correlation Coefficient", labelpad=10)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'cross_correlation.png'), dpi=300, bbox_inches='tight')
 plt.close()
 
 # Visualization 5: Cumulative demand over time
 cumulative_data = weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].cumsum()
 plt.figure(figsize=(14, 6))
-for instrument in cumulative_data.columns:
-    plt.plot(cumulative_data.index, cumulative_data[instrument], label=f"Cumulative {instrument}", marker='o')
-plt.title("Cumulative Demand for MilkoScan™ FT3 and BacSomatic™")
-plt.xlabel("Week")
-plt.ylabel("Cumulative Quantity Ordered")
-plt.legend()
-plt.grid()
-
-# Save the plot
-plt.savefig(os.path.join(plots_dir, 'cumulative_demand.png'), dpi=300)
+sns.lineplot(data=cumulative_data, dashes=False, markers=True, 
+             linewidth=2.5, markersize=8, palette=colors[:2])
+plt.title("Cumulative Demand Analysis\nMilkoScan™ FT3 and BacSomatic™", pad=20)
+plt.xlabel("Date", labelpad=10)
+plt.ylabel("Cumulative Quantity", labelpad=10)
+plt.legend(title="Instrument", title_fontsize=12, fontsize=10, framealpha=0.9)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'cumulative_demand.png'), dpi=300, bbox_inches='tight')
 plt.close()
 
-print(f"All plots saved to {os.path.abspath(plots_dir)} directory")
+print(f"Enhanced plots saved to {os.path.abspath(plots_dir)} directory")
