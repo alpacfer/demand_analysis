@@ -32,70 +32,8 @@ instrument_colors = {
     'BacSomatic™': colors[1]      # Second color from Set1 (typically blue)
 }
 
-# Create a function for consistent plot styling
-def apply_consistent_style(ax, title, xlabel, ylabel, legend_title=None):
-    """Apply consistent styling to all plots"""
-    # Title styling
-    ax.set_title(title, pad=20, fontsize=14, fontweight='bold')
-    
-    # Axis labels
-    ax.set_xlabel(xlabel, labelpad=15, fontsize=12)
-    ax.set_ylabel(ylabel, labelpad=15, fontsize=12)
-    
-    # Grid styling
-    ax.grid(True, which='major', color='#E5E5E5', linestyle='-', alpha=0.8)
-    ax.set_axisbelow(True)  # Ensure grid is behind the data
-    
-    # Background
-    ax.set_facecolor('white')
-    
-    # Legend (check if legend exists and then style it using a more compatible approach)
-    legend = ax.get_legend()
-    if legend is not None:
-        # Set legend properties in a version-compatible way
-        try:
-            # Try setting frame alpha property directly
-            legend.get_frame().set_alpha(0.9)
-        except:
-            # If that fails, don't modify alpha
-            pass
-            
-        # These properties should work across versions
-        legend.get_frame().set_facecolor('white')
-        legend.get_frame().set_edgecolor('#E5E5E5')
-        
-        # Set legend title if provided
-        if legend_title:
-            legend.set_title(legend_title)
-            legend.get_title().set_fontsize(12)
-    
-    # Add date axis formatting if the x-axis contains dates
-    if isinstance(ax.get_xlim()[0], (np.float64, float)):
-        try:
-            dates = plt.matplotlib.dates.num2date(ax.get_xlim())
-            set_consistent_date_axis(ax, ax.get_lines()[0].get_xdata())
-        except:
-            pass
-    
-    # Tight layout
-    plt.tight_layout()
-    
-    return ax
-
-def set_consistent_date_axis(ax, data_index):
-    """Apply consistent date axis formatting"""
-    # Set date limits to cover the entire dataset
-    date_min = data_index.min()
-    date_max = data_index.max()
-    ax.set_xlim(date_min, date_max)
-    
-    # Set monthly ticks (changed interval from 2 to 1 to show all months)
-    ax.xaxis.set_major_locator(plt.matplotlib.dates.MonthLocator(interval=1))
-    ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%b %Y'))
-    plt.setp(ax.xaxis.get_majorticklabels(), rotation=45, ha='right')
-
 # Create a directory to save plots if it doesn't exist
-plots_dir = 'plots'
+plots_dir = os.path.join('plots', 'demand_plots')
 if not os.path.exists(plots_dir):
     os.makedirs(plots_dir)
 
@@ -108,9 +46,6 @@ data = pd.read_csv(file_path, encoding='Windows-1252')
 
 # Ensure the OrderDate column is in datetime format
 data['OrderDate'] = pd.to_datetime(data['OrderDate'], format='%d-%m-%y')
-
-# Convert the Qty. column to numeric to avoid string operations later
-data['Qty.'] = pd.to_numeric(data['Qty.'], errors='coerce').fillna(0)
 
 # Filter data for the specific instruments, including variations
 filtered_data = data[data['Instrument'].str.contains('MilkoScan™ FT3|BacSomatic™', na=False, case=False)]
@@ -145,18 +80,29 @@ for refurbished in valid_refurbished:
 weekly_data = pivot_data.resample('W').sum()
 
 # First visualization (Weekly demand smoothed)
-fig, ax = plt.subplots(figsize=(14, 8), facecolor='white')
+plt.figure(facecolor='white')
+ax = plt.gca()
+ax.set_facecolor('white')
 for instrument in ['MilkoScan™ FT3', 'BacSomatic™']:
-    sns.lineplot(ax=ax, data=weekly_data[instrument], label=instrument, 
-                marker='o',  # Add circular markers
-                markersize=6,  # Slightly smaller than the ratio plot
-                linewidth=2.5, 
-                color=instrument_colors[instrument])
+    sns.lineplot(data=weekly_data[instrument], label=instrument, dashes=False, markers=True,
+                linewidth=2.5, markersize=8, color=instrument_colors[instrument])
 
-set_consistent_date_axis(ax, weekly_data.index)
-apply_consistent_style(ax, "Weekly Demand Trends by Units\nMilkoScan™ FT3 and BacSomatic™", 
-                      "Date", "Number of Units Ordered", "Instrument")
+# Enforce monthly labels on the x-axis
+plt.gca().xaxis.set_major_locator(plt.matplotlib.dates.MonthLocator())
+plt.gca().xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%b %Y'))
+plt.gcf().autofmt_xdate()
 
+plt.title("Weekly Demand Trends\nMilkoScan™ FT3 and BacSomatic™", pad=20)
+plt.xlabel("Month", labelpad=15)
+plt.ylabel("Quantity Ordered", labelpad=15)
+plt.legend(title="Instrument", title_fontsize=12, fontsize=10, framealpha=0.9)
+
+# Enhanced grid settings
+ax.grid(True, which='major', color='#E5E5E5', linestyle='-', alpha=0.8)
+ax.grid(True, which='minor', color='#E5E5E5', linestyle='--', alpha=0.5)
+ax.set_axisbelow(True)  # Ensure grid is behind the data
+
+plt.tight_layout()
 plt.savefig(os.path.join(plots_dir, 'weekly_demand_smoothed.png'), dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
 
@@ -171,91 +117,72 @@ print(weekly_data.sum())
 print("\n=== AVERAGE WEEKLY DEMAND ===")
 print(weekly_data.mean())
 
+print("\n=== CORRELATION MATRIX ===")
+print(weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].corr())
+
 print("\n=== HEAD OF RATIO TIME SERIES ===")
 print(weekly_data['Ratio_MilkoScan_to_BacSomatic'].head())
 
-# Calculate total sales by instrument
-total_sales_by_instrument = data.groupby('Instrument')['Qty.'].sum()
-total_units_sold = total_sales_by_instrument.sum()
-
-# Calculate market share - simplified version focused on FT3 and BacSomatic
-total_units_sold = data['Qty.'].sum()
-ft3_units = data[data['Instrument'].str.contains('MilkoScan™ FT3', na=False)]['Qty.'].sum()
-bac_units = data[data['Instrument'].str.contains('BacSomatic™', na=False)]['Qty.'].sum()
-other_units = total_units_sold - ft3_units - bac_units
-
-# Calculate percentages
-ft3_share = (ft3_units / total_units_sold * 100) if total_units_sold > 0 else 0
-bac_share = (bac_units / total_units_sold * 100) if total_units_sold > 0 else 0
-other_share = (other_units / total_units_sold * 100) if total_units_sold > 0 else 0
-
-# Print market share information
-print("\n=== Market Share Analysis ===")
-print(f"MilkoScan FT3: {ft3_share:.1f}% ({int(ft3_units)} units)")
-print(f"BacSomatic: {bac_share:.1f}% ({int(bac_units)} units)")
-print(f"Other Products: {other_share:.1f}% ({int(other_units)} units)")
-print(f"Total: {int(total_units_sold)} units")
-
-# Create pie chart of market share - simplified version
-plt.figure(figsize=(12, 8))
-market_data = [ft3_units, bac_units, other_units]
-labels = [f'MilkoScan FT3 ({ft3_share:.1f}%, {int(ft3_units)} units)', 
-          f'BacSomatic ({bac_share:.1f}%, {int(bac_units)} units)', 
-          f'Other Products ({other_share:.1f}%, {int(other_units)} units)']
-colors = [instrument_colors.get('MilkoScan™ FT3', colors[0]), 
-          instrument_colors.get('BacSomatic™', colors[1]), 
-          'lightgray']
-
-# Create donut chart with no labels inside
-wedges, _ = plt.pie(market_data, colors=colors, startangle=90, 
-                    wedgeprops=dict(width=0.5, edgecolor='white'),
-                    labels=[''] * len(market_data))  # Empty labels
-
-# Add legend with percentages and units
-plt.legend(wedges, labels,
-          title="Market Share Distribution (By Units Sold)",
-          loc="center left",
-          bbox_to_anchor=(1, 0.5))
-
-plt.title("Market Share Distribution by Units", pad=20, fontsize=16, fontweight='bold')
-
-# Ensure the pie chart appears circular
-plt.axis('equal')
-
-# Adjust layout to ensure legend is visible
-plt.tight_layout()
-plt.savefig(os.path.join(plots_dir, 'market_share.png'), 
-            dpi=300, bbox_inches='tight', facecolor='white')
-plt.close()
-
 # Visualization 2: Ratio over time
-fig, ax = plt.subplots(figsize=(14, 8), facecolor='white')
-sns.lineplot(ax=ax, x=weekly_data.index, y=weekly_data['Ratio_MilkoScan_to_BacSomatic'], 
+plt.figure(facecolor='white')
+ax = plt.gca()
+ax.set_facecolor('white')
+sns.lineplot(x=weekly_data.index, y=weekly_data['Ratio_MilkoScan_to_BacSomatic'], 
              color=instrument_colors['MilkoScan™ FT3'], marker='o', markersize=8, linewidth=2.5,
              label='MilkoScan™ FT3 / BacSomatic™')
-ax.axhline(1, linestyle='--', color='gray', alpha=0.8, label='Equal Demand')
-
-set_consistent_date_axis(ax, weekly_data.index)
-apply_consistent_style(ax, "Demand Ratio Analysis\nMilkoScan™ FT3 to BacSomatic™", 
-                      "Date", "Ratio")
-
+plt.axhline(1, linestyle='--', color='gray', alpha=0.8, label='Equal Demand')
+plt.title("Demand Ratio Analysis\nMilkoScan™ FT3 to BacSomatic™", pad=20)
+plt.xlabel("Date", labelpad=15)
+plt.ylabel("Ratio", labelpad=15)
+plt.legend(fontsize=10, framealpha=0.9)
+plt.grid(True, color='#E5E5E5', linestyle='-', alpha=0.5)
+plt.tight_layout()
 plt.savefig(os.path.join(plots_dir, 'ratio_over_time.png'), dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
 
+# Visualization 3: Correlation heatmap
+plt.figure(facecolor='white')
+ax = plt.gca()
+ax.set_facecolor('white')
+correlation = weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].corr()
+sns.heatmap(correlation, annot=True, cmap="RdBu_r", vmin=-1, vmax=1, 
+            annot_kws={"size": 12}, square=True, fmt=".2f",
+            cbar_kws={"shrink": .8})
+plt.title("Correlation Analysis", pad=20)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'correlation_heatmap.png'), dpi=300, bbox_inches='tight', facecolor='white')
+plt.close()
+
+# Visualization 4: Cross-correlation (interaction analysis)
+plt.figure(facecolor='white')
+ax = plt.gca()
+ax.set_facecolor('white')
+lags = np.arange(-8, 9)
+cross_corr = [weekly_data['MilkoScan™ FT3'].corr(weekly_data['BacSomatic™'].shift(lag)) for lag in lags]
+sns.barplot(x=lags, y=cross_corr, color=instrument_colors['MilkoScan™ FT3'], alpha=0.7)
+plt.axhline(0, color='gray', linewidth=1, linestyle='--')
+plt.title("Cross-correlation Analysis\nMilkoScan™ FT3 vs. BacSomatic™", pad=20)
+plt.xlabel("Lag (Weeks)\nNegative: BacSomatic leads, Positive: MilkoScan leads", labelpad=15)
+plt.ylabel("Correlation Coefficient", labelpad=15)
+plt.grid(True, color='#E5E5E5', linestyle='-', alpha=0.5)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, 'cross_correlation.png'), dpi=300, bbox_inches='tight', facecolor='white')
+plt.close()
+
 # Visualization 5: Cumulative demand over time
-fig, ax = plt.subplots(figsize=(14, 8), facecolor='white')
+plt.figure(facecolor='white')
+ax = plt.gca()
+ax.set_facecolor('white')
 cumulative_data = weekly_data[['MilkoScan™ FT3', 'BacSomatic™']].cumsum()
 for instrument in ['MilkoScan™ FT3', 'BacSomatic™']:
-    sns.lineplot(ax=ax, data=cumulative_data[instrument], label=instrument,
-                marker='o',  # Add circular markers
-                markersize=6,  # Slightly smaller than the ratio plot
-                linewidth=2.5,
-                color=instrument_colors[instrument])
-
-set_consistent_date_axis(ax, weekly_data.index)
-apply_consistent_style(ax, "Cumulative Demand Analysis by Units\nMilkoScan™ FT3 and BacSomatic™", 
-                      "Date", "Cumulative Units", "Instrument")
-
+    sns.lineplot(data=cumulative_data[instrument], label=instrument, dashes=False, 
+                markers=True, linewidth=2.5, markersize=8, color=instrument_colors[instrument])
+plt.title("Cumulative Demand Analysis\nMilkoScan™ FT3 and BacSomatic™", pad=20)
+plt.xlabel("Date", labelpad=15)
+plt.ylabel("Cumulative Quantity", labelpad=15)
+plt.legend(title="Instrument", title_fontsize=12, fontsize=10, framealpha=0.9)
+plt.grid(True, color='#E5E5E5', linestyle='-', alpha=0.5)
+plt.tight_layout()
 plt.savefig(os.path.join(plots_dir, 'cumulative_demand.png'), dpi=300, bbox_inches='tight', facecolor='white')
 plt.close()
 

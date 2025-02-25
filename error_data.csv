@@ -1,0 +1,400 @@
+Dato:,Serienummer:,Test,Step,Type of error,Type of error,Fejlbeskrivelse og komentarer,L?sning
+04-01-24,91928203,Basic,Visuel inspektion,,,"M4 DRV JP18, stikben pÜ r?d ledning var ikke clicket pÜ plads i stikhus",Ledning i stik rettet
+04-01-24,91928203,Basic,Initial ID chip,ID chip,,V3 ID chip kunne ikke lëses. Sort ledning afbrudt ved crimp kontakt i stik.,Ledning i stik rettet
+05-01-24,91928536,5 Mëlk,Verify 5mëlk,Trans,Fat,Fat fejlede stort - B2023-52. Naboen bestod flot. Gentaget: bestod - B2023-52,Testet igen
+08-01-24,91928494,Basic,Flow System Check,human error,,Slanger Q+I pÜ M2 pumpe ikke spëndt.,Slanger ikke spëndt
+08-01-24,91928601,Basic,Initial ID chip,ID chip,,V1 ID chip kunne ikke lëses. Begge ledninger afbrudt ved crimp kontakt i stik.,Ledning i stik rettet
+10-01-24,91928444,5 Mëlk,Verify 5mëlk,Trans,SNF,"SNF lÜ lige over tolerancen, B2023-52. Gentaget test, B2023-52: bestÜet flot.",Testet igen
+11-01-24,91928678,Basic,Power up Instrument,,,Unormal lyd fra M1 pumpen (h?jre side). Power up gentaget uden bedring.,M1 pumpe skiftet
+12-01-24,91928678,GPT,Measure GPT,,,M1 pumpe/H-trin hyler nÜr der k?res fl?de.,
+12-01-24,91928921,Basic,Flow System Check,,,Unormale lyde fra M1 pumpen/H-stage. H-stage skiftet - nye unormale lyde.,
+12-01-24,91928921,Basic,Flow System Check,,,"H-stage afmont, delvis adskilt, blëst med trykluft, samlet og monteret: OK",L?sning
+12-01-24,91928921,GPT,Verify GPT,WaterTemp,human error,LÜg havde kun vëret pÜ instrument i ca. 20 min. ved start af GPT.,
+15-01-24,91928921,GPT,Verify GPT,,,GPT gentaget: bestÜet.,Testet igen
+16-01-24,91928990,Basic,Initial ID chip,ID chip,,"M1 ventiler med crimpefejl pÜ begge ledninger: V1, V2 og V3 (ialt 6 stikben).",Ledning i stik rettet
+17-01-24,91928990,GPT,Verify GPT,ASM,,"MilkASM: Meas 2,0426 vs. LimitHigh 2. IFU fejelr modul test. Ifu justeret og sendt igennem klimaskab og bestÜr modul test.",
+17-01-24,91929139,5 Mëlk,Verify 5mëlk,Trans,Protein,"B2024-02 Protein Trans, Meas 0,02411 vs LimitHigh 0,018",
+17-01-24,91929139,5 Mëlk,Verify 5mëlk,Trans,Protein,"Testet igen B2024-02 Protein Trans, Meas 0,0195 vs LimitHigh 0,018",
+17-01-24,91928921,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein,"B2024-02 FatTrans Meas 0,02556 vs 0,024, ProteinTrans Meas 0,01927 vs 0,018",
+17-01-24,91928921,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein,"Testet igen med B2024-02: bestÜet FatTr 0,01827 og ProtTr 0,01397",Testet igen
+18-01-24,91929139,5 Mëlk,Verify 5mëlk,Trans,Protein,"Extended Clean + filterstick spëndt. Testet igen B2024-02: bestÜet flot 0,00863",Spëndt filterstick
+18-01-24,91928990,GPT,Verify GPT,ASM,,"Fejler igen. MilkASM: Meas 2,0308 vs. 2 og ProteinRep_milk: 0,00811 vs. 0,008",
+22-01-24,91929425,Basic,Visuel inspektion,,,Intet lys i V4 LED pÜ driver pcb: afisolerig/crimp fejl. V1 havde samme fejl.,Ledning i stik rettet
+23-01-24,91929541,Basic,Visuel inspektion,,,Intet lys i V1 LED pÜ driver pcb: afisolerig/crimp fejl.,Ledning i stik rettet
+24-01-24,91929616,Basic,Initial ID chip,ID chip,,Motor M1 ID chip kunne ikke lëses. Det ene stikben var meget Übent for til.,Ledning i stik rettet
+25-01-24,91929616,5 Mëlk,Verify 5mëlk,Trans,Fat,"B2024-04 Fat trans fejler: 0,02795 vs. Limit High 0,024",
+25-01-24,91929616,STD,,,,FTIR olie indtag markant < normalt - desvërre f?rst set efter 5-milk bestÜet.,
+26-01-24,91929683,M. Conductivity,Verify Cond.,SampleCond,,"Conductivity fejler, Meas 258,9275 vs. Limit high 257,14",
+30-01-24,91929874,Basic,Pipette Test,adjustment wrong,,Pipette l?fter sig ikke. Magnet position justeret med s?gerblad: OK,Justeret
+30-01-24,91929874,Basic,Flow System Check,adjustment wrong,,M1 H-stage: Fails to adjust correct pressure. Metalring pos. just. vha. presse.,Justeret
+30-01-24,91929874,GPT,Measure GPT,,,Backpressure valve fail to adjust pr. Udviddet hun-stikben i kabelstik til motor.,Ledning i stik rettet
+31-01-24,91929718,GPT,Measure GPT,,,Mange outlier under mëlketest og mange fejl i verify,
+31-01-24,91929718,GPT,Measure GPT,,,Cuvette revnet,Skiftet cuvette
+31-01-24,91929683,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 257,3717 vs. Limit high 257,14 (nyt cond. modul)",Skiftet Conductivity modul. Fejler
+31-01-24,91929904,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 260,3556 vs. Limit high 257,14",
+31-01-24,91929683,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 257,3953 vs. Limit high 257,14 (""nyt"" rep. cond. modul)",Skiftet Conductivity modul. Fejler
+31-01-24,91929683,M. Conductivity,Verify Cond.,,,"Nyt cond. modul (det fjerde!): BESTèET! Meas 256,6375 vs. Limit high 257,14",Skiftet Conductivity modul
+01-02-24,91929800,Basic,Visuel inspektion,,,"Crimpfejl pÜ ID chip kabelstik pÜ V2, V3 og V4 (6 sikben)",Ledning i stik rettet
+01-02-24,91929800,Basic,Register ID Chip,ID chip,,Stikben til sort ledning pÜ ID chip i M1 kabel var udvidet (dÜrlig forbindelse),Ledning i stik rettet
+02-02-24,91929891,GPT,Verify GPT,FPSignalWater,,Vërdi er for lav. Conduc. opf?rer sig ogsÜ underligt. Driver PCB skiftet og cuvette skiftet.,Fejler
+05-02-24,91930086,Basic,Visuel inspektion,,,Crimpfejl pÜ ID chip kabelstik pÜ V4 (2 stikben),Ledning i stik rettet
+05-02-24,91930086,Basic,Pipette Test,adjustment wrong,,Pipette l?fter sig ikke. Magnet position justeret med s?gerblad: OK,Justeret
+05-02-24,91929904,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 258,4906 vs. Limit high 257,14 (nyt cond. modul s/n 0690)",Skiftet Conductivity modul. Fejler
+05-02-24,91929904,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 257,4797 vs. Limit high 257,14 (nyt cond. modul s/n 0689)",Skiftet Conductivity modul. Fejler
+06-02-24,91929904,M. Conductivity,Verify Cond.,,,"K?rt 3 x clean, skiftet Clean og Zero, k?rt 1 x clean, test igen: Meas 256,9904 OK",Testet igen
+06-02-24,91929945,Basic,Visuel inspektion,,,Crimpfejl pÜ ID chip kabelstik pÜ V1 og V2 (4 stikben),Ledning i stik rettet
+07-02-24,91929968,Basic,Visuel inspektion,,,Crimpfejl pÜ ID chip kabelstik pÜ V1 og V4 (4 stikben),Ledning i stik rettet
+07-02-24,91930107,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+07-02-24,91929968,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+07-02-24,91930107,GPT,Verify GPT,WaterDiff,,"Fejler WaterDiff. Meas 0,00317 vs. Limith high 0,003.",
+07-02-24,91930107,GPT,Verify GPT,WaterDiff,,"Skiftet Zero + om-test. Meas 0,00043 vs. Limit high 0,003",Testet igen
+07-02-24,91930001,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+07-02-24,91929945,Basic,Pipette Test,adjustment wrong,,Pipette l?fter sig alt for lidt. Justeret.,Justeret
+08-02-24,91930280,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 257,8478 vs. Limit high 257,14 Modul s/n 0691",
+09-02-24,,M. Conductivity,,,,"-  modul s/n 0691 flyttet uëndret til FT3 S/N 91930277, meas 256,2257: OK",
+09-02-24,91930280,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 259,9173 vs. Limit high 257,14 Modul s/n 0692",Skiftet Conductivity modul. Fejler
+09-02-24,91929945,STD,Verify GPT,Oil Rep,,"LPOilRep meas 0,00108 vs. Limit high 0,001. Testet igen, OK: meas 0,00014",Testet igen
+12-02-24,91930237,GPT,Verify GPT,Fat+Lactose+SNF,,"Skiftet BPV og Cuvette ,Testet 2 gang GPT",
+12-02-24,91930280,M. Conductivity,Verify Cond.,,,"Renoveret cond. modul s/n 0690, bestÜet: Meas 256,33",Skiftet Conductivity modul
+13-02-24,91930422,GPT,Measure GPT,Protein+SNF,,Testet igen,L?sning
+13-02-24,91930186,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+13-02-24,91929945,M. Conductivity,Measure Cond.,Error component,,"""Clean solution is either incorrect or too cold"" - Slange pÜ M1:E var knëkket.",Slange ?delagt
+14-02-24,91929891,GPT,Verify GPT,FPSignalWater,,"FatRep_milk, Meas 0,01093 vs. Limit H 0,009 og FPSignalWater: <LimitLow ",Skiftet cuvette. Fejler igen
+14-02-24,91929891,GPT,Verify GPT,FPSignalWater,,IR source midterskrue ikke spëndt i bund.,
+14-02-24,91930458,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+14-02-24,91930458,Basic,Touch Screen Test,,,Fejl i venstre side af display - lyse omrÜder,
+15-02-24,91929891,GPT,Verify GPT,FPSignalWater,,Cuvette skiftet + source skrue spëndt i gÜr. Meas 3791755 < LimitLow 4200000,Skiftet cuvette. Fejler igen
+15-02-24,91930458,5 Mëlk,Verify 5mëlk,Trans,Fat,"FatTrans Meas 0,02403 > Limit high 0,024. Omtest Meas 0,01573: OK",Testet igen
+16-02-24,91930367,GPT,Verify GPT,Lactose,,Testet igen,Testet igen
+16-02-24,91930495,Basic,Visuel inspektion,,,"Orange lys ved JP13, JP14, JP15 og JP18. èrsag: udviddet stikben i JP15 kabelstik",Ledning i stik rettet
+16-02-24,91930367,STD,Measure 5 mëlk,Fat,Trans,Testet igen,Testet igen
+19-02-24,91930571,M. Conductivity,Measure Cond.,,,Zero: Too low conductivity of Clean. Clean skift hjalp ikke. Nyt Cond. modul: OK,Skiftet Conductivity modul
+21-02-24,91852320,5 Mëlk,Measure 5mëlk - Current week,,,Zero setting: Instrumentet meldte fejl pÜ Zero vësken (var ny). Bl. ny zero: OK,
+22-02-24,91930672,M. Conductivity,Measure Cond.,,,Zero: Too low conductivity of Clean. Nyt Cond.modul ,L?sning
+23-02-24,91930711,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+23-02-24,91930711,Basic,Switches and sensors,,,IFU transport lock: State indicator virker ikke.  Topm?trik mangler.,
+23-02-24,91930728,Basic,Initial ID chip,ID chip,,"Motor 1 ID chip kan ikke lëses, heller ikke l?s M1 pumpe tilsluttet JP14. PCB fejl",
+26-02-24,91930728,Basic,Initial ID chip,ID chip,,Motor 1 ID chip kan ikke lëses. Skiftet Driver PCB og genindlëst SW etc.: OK,Skiftet driver PCB
+26-02-24,91930711,Basic,Switches and sensors,,,Manglende topm?trik monteret pÜ IFU transport lock: State indicator OK,Rettet IFU lÜs
+26-02-24,91930711,Basic,Switches and sensors,,,IFU montage skrue var ikke skruet helt i: Fejl i presm?trik. Ny presm?trik (SNA),L?sning
+27-02-24,91930778,GPT,Measure GPT,Error component,,"""No sample under pipette"" Der mÜles om der er sample til stede i gennem tryksensoren pÜ M1, V1 og V4. I dette tilfëlde var V4 defekt.",M1 pumpe skiftet
+28-02-24,91930995,Basic,Switches and sensors,human error,,LÜge sensor virkede ikke. Kabelstik i JP20 og JP21 var byttet om.,Kabler byttet
+29-02-24,91931011,GPT,,human error,,Detektor sad skëvt. Blev f?rst opdaget efter bestÜet GPT. GPT gentaget.,Testet igen
+04-03-24,91931161,Basic,Pipette Test,,,Ingen dëmpning af pip. bevëgelse. Tandhjul i h?jre side ikke spëndt. Just. + moment-spëndt (NRAS),Justeret
+06-03-24,91931282,M. Conductivity,Verify Cond.,,,"Fejler SampleCond: Meas 269,4725 vs. Limit high 260. Modul s/n 0708",
+06-03-24,91931282,M. Conductivity,Verify Cond.,,,"Nyt Cond. modul mont. S/N 0712. Sample Cond. Meas 257,1825",Skiftet Conductivity modul
+06-03-24,91931433,GPT,Verify GPT,Fat+Protein+Lactose+TS+SNF,,,Testet igen
+07-03-24,91931423,Basic,Pipette Test,adjustment wrong,,"Pipette l?fter sig ikke. Magnet position justeret med s?gerblad 0,5 mm: OK",Justeret
+07-03-24,91931434,Basic,Pipette Test,adjustment wrong,,Pipette l?fter sig ikke nok. Justeret.,Justeret
+07-03-24,91931421,Basic,Flow System Check,,,Transport-lÜsen er aktiveret. NUT top var ikke strammet.,Justeret
+07-03-24,91931421,GPT,Verify GPT,WaterDiff,,Skiftet Zero.,Testet igen
+11-03-24,91931448,Basic,Pipette Test,adjustment wrong,,Pip. l?fter sig ikke: Justeret med 0.5 mm s. blad. Pip. l?fter sig for lidt.: justeret.,Justeret
+11-03-24,91931448,Basic,Flow System Check,,,Diagnostic c.: to restriktioner. knëk pÜ slange mellem CUV og Pre-heater. Skiftet.,Fejler
+11-03-24,91931448,Basic,Flow System Check,,,"Tjekket gennemgang i CUV, Pre-heater, Slanger, V2 mm. Testet igen: Çn restriktion",Fejler
+11-03-24,91931448,Basic,Flow System Check,,,Kabel til M3/JP13: Ledning pin 5 ikke klikket i stikhus. Rettet. Testet igen: fejler stadig,Fejler
+11-03-24,91931141,Basic,Visuel inspektion,,,Mains power stik vender omvendt (jordben ?verst). Stik skruet ud og vendt.,L?sning
+11-03-24,91931709,Basic,Pipette Test,adjustment wrong,,Pipette l?ster sig ikke: Magnet justeret. Pipette l?fter sig ikke nok: Justeret.,Justeret
+12-03-24,91931448,Basic,Flow System Check,,,"Restriction in flow M1, M2, cuvette, BPV. Der sad en WSC cuvette i, istedet for en MSC.",Skiftet cuvette
+13-03-24,91931480,STD,Calculate STD,,,Ventilen er ikke samlet korrekt.,Justeret
+14-03-24,91931736,Basic,Flow System Check,,,Restriction/leak in zero string.,Skiftet pipette
+15-03-24,91931840,Prepare,Power up Instrument,connection problem,,Ingen kommunikation/intet lys i Ethernet LED'er. Skiftet NAT ZYNQ pcb: OK,Skiftet Zynq PCB
+18-03-24,91931825,M. Conductivity,Measure Cond.,connection problem,,NOVA forbinder ikke til instrument. Genstart af test og af NOVA hjalp ikke. Instrument off og on og test genstartet: OK,Genstart af instrument
+18-03-24,91931791,GPT,Verify GPT,Cream_Rep,,,Testet igen
+18-03-24,91931791,GPT,Verify GPT,ASM,,,Testet igen
+18-03-24,91931448,5 Mëlk,Verify 5mëlk,Trans,Protein+SNF,"B2024-10 ProtTrans 0,01957 vs. LimH 0,018 og SNFTrans 0,04616 vs. LimH 0,043",Fejler
+18-03-24,91931448,5 Mëlk,Verify 5mëlk,Trans,SNF,"B2024-11 SNFTrans 0,04398  vs. LimH 0,043",Fejler
+19-03-24,91931898,Prepare,Power up Instrument,connection problem,SNF,Ingen kommunikation/intet lys i D5 pÜ ZYNQ pcb. Skiftet NAT ZYNQ pcb: OK,Skiftet Zynq PCB
+20-03-24,91931866,GPT,Verify GPT,Cream_Rep,,,Testet igen
+20-03-24,91931448,5 Mëlk,Verify 5mëlk,Trans,SNF,Linse og detektor skiftet (19-03-2024 ANGR). Testet igen B2024-11: OK,Skiftet linse og detektor.
+20-03-24,91931627,M. Conductivity,Verify Cond.,,SNF,"Fejler SampleCond: Meas 261,0929 vs. Limit high 260. Modul s/n 0711",Fejler
+20-03-24,91931627,M. Conductivity,Verify Cond.,,,"Nyt Cond modul mont. s/n 0687. Test gentaget. Meas 255,8756: OK",Skiftet Conductivity modul
+20-03-24,91931898,Basic,Pipette Test,adjustment wrong,,Pipette l?ster sig ikke: Magnet pos. justeret. Pipette for langt inde: Stop justeret.,Justeret
+21-03-24,91931898,Basic,Flow System Check,,,Mislyd ved k?rsel af Pumpe 1: Motoraksel skëv. Motor skiftet (ANGR): OK,L?sning
+21-03-24,91931898,5 Mëlk,Verify 5mëlk,Trans,Fat,"B2024-11 FatTrans Meas 0,02621  LimH 0,024. Naboinstrumentet bestod flot.",Fejler
+21-03-24,91931898,5 Mëlk,Verify 5mëlk,Trans,Fat,"Testet igen, samme batch B2024-11 FatTrans Meas 0,02308  LimH 0,024. OK",Testet igen
+22-03-24,91932025,Basic,Visuel inspektion,,,Detektor cover l?st. 4 ud af 5 skruer var ikke spëndt. Momentspëndt skruer.,L?sning
+22-03-24,91932025,Basic,Pipette Test,adjustment wrong,,Pipette for langt ude (i l?ftet position). Justeret.,Justeret
+22-03-24,91932025,Basic,Flow System Check,adjustment wrong,,Pumpe 2 var ikke skubbet helt pÜ plads i sit rustfri hus. Justeret. lyder bedre!,Justeret
+26-03-24,91932261,Basic,Initial ID chip,ID chip,,Kunne ikke se PSU Fan,Skiftet driver PCB
+26-03-24,91932261,Basic,Initial ID chip,ID chip,,Kunne ikke se PSU Fan Kontrol PCB skiftet,Skiftet driver PCB
+26-03-24,91932261,STD,Verify STD,GlycCorr,,"MÜlt 0,99995 (lav 0,99996 h?j 1).",Testet igen
+27-03-24,91932261,STD,Verify STD,GlycCorr,,"MÜlt 0,99995 (lav 0,99996 h?j 1). Virkede efter anden gang.",L?sning
+09-04-24,91932604,GPT,Verify GPT,human error,,Fik k?rt en fl?de som mëlk :-),Testet igen
+09-04-24,91932604,GPT,Verify GPT,human error,,Fik k?rt en fl?de som mëlk. gentest virkede :-),L?sning
+09-04-24,91932379,5 Mëlk,Verify 5mëlk,,,"5-mëlk B2024-14 var valgt, men Verify viser B2024-12. Genstart af test og genberegning hjalp ikke",Fejler
+10-04-24,91930482,,,adjustment wrong,,Pipette var for langt inde fra kant i l?ftet position. Justeret.,Justeret
+11-04-24,91932379,5 Mëlk,Verify 5mëlk,,,Efter to dage blev genberegning fors?gt igen og B2024-14 blev korrekt vist. OK,
+11-04-24,91935650,Basic,Initial ID chip,ID chip,,Fejl pÜ kontroll pcb,Skiftet driver PCB
+12-04-24,91932819,5 Mëlk,Verify 5mëlk,Trans,Fat,FAT Trans for h?j,Testet igen
+12-04-24,91932869,5 Mëlk,Verify 5mëlk,Trans,Fat,FAT Trans for h?j,Testet igen
+12-04-24,91932819,5 Mëlk,Verify 5mëlk,Trans,Fat,FAT Trans for h?j,L?sning
+12-04-24,91932869,5 Mëlk,Verify 5mëlk,Trans,Fat,FAT Trans for h?j,L?sning
+16-04-24,91933050,Prepare,Firmware,,SNF,Display skifter mellem farver og testm?nstre. 3 x geninstallation af SW hjalp ikke,Fejler
+16-04-24,91932850,Basic,Initial ID chip,ID chip,Fat+SNF,ID chip V5 og V7 lëses ikke pga. crimp fejl. Nye stikben mont.: OK,Ledning i stik rettet
+16-04-24,91932850,Basic,Initial ID chip,ID chip,Fat+SNF,Pip. motor ID chip lëses ikke. Pip. kabel var ikke sat i JP 25. Rettet + FT3 genstart: OK,Ledning ikke i stik
+16-04-24,91932912,Basic,Verify Cond. connection,,Fat,Fladkabel til Cond. modul vendt forkert. Kan monteres omvendt. Testet OK.,l?sning
+17-04-24,91932912,Basic,Initial ID chip,,Fat,"ID chip V6, V7 og V8 lëses ikke pga. crimp fejl. Nye stikben mont.: OK",Ledning i stik rettet
+17-04-24,91933050,Prepare,Firmware,,Fat,Control PCB skiftet. Display virker nu normalt (se d. 16-04-2024).,Skiftet CTR print
+18-04-24,91932985,Basic,Visuel inspektion,,Fat,"V8: r?d led off, ID chip uden forbindelse pga. crimp fejl. Mont nye stikben: OK",Ledning i stik rettet
+18-04-24,91933050,Basic,,,Fat,V9: ID chip afbr?d i stik i.f.m. mont. af dëkplade pga crimpfejl. Nye stikben: OK,Ledning i stik rettet
+18-04-24,91932985,Basic,Flow System Check,,Fat,"Instrumentet er ikke registreret i Local Configurator, configuration kan ikke loades",Fejler
+18-04-24,91932850,STD,Measure STD,connection problem,Fat,Instrument vil ikke connecte til NOVA trods fin connction til FossServiceScan,Fejler
+18-04-24,91932850,STD,Measure STD,connection problem,fat,Skiftet NAT Zynq PCB: Instrument connecter nu normalt til NOVA. OK,L?sning
+19-04-24,91932985,Basic,Flow System Check,,Fat,Skiftet Control PCB og beholdt NAT Zynq PCB - Local Configurator virker nu OK,L?sning
+19-04-24,91932912,STD,Verify STD,GlycCorr,Fat,"OffsetStdCorr Meas 0,04613 vs. 0,04 og GlycCorr Meas 0,99996 vs. 0,99996",Fejler
+19-04-24,91932912,STD,Verify STD,GlycCorr,,"Skiftet Clean og Zero og gentaget test: OffsetStdCorr Meas 0,04572 vs. 0,04",Fejler
+22-04-24,91932985,5 Mëlk,Verify 5mëlk,Trans,SNF,"SNFTrans Meas 0,04498 B2024-15",Fejler
+22-04-24,91933050,5 Mëlk,Verify 5mëlk,Trans,Fat+SNF,"FatTrans Meas 0,04271, SNF Meas 0,04921 B2024-15",Fejler
+22-04-24,91932850,5 Mëlk,Verify 5mëlk,Trans,Fat+SNF,"FatTrans Meas 0,03975, SNF Meas 0,06812 B2024-15",Fejler
+23-04-24,91932985,5 Mëlk,Verify 5mëlk,Trans,Fat,"FatTrans Meas 0,026826 B2024-16",Fejler
+24-04-24,91932912,STD,Verify STD,,Fat,"Skiftet linse. OffsetStdCorr Meas 0,040662 vs. 0,04",Fejler
+24-04-24,91932912,STD,Verify STD,,Fat,"Skiftet cuvette og detector. OffsetStdCorr Meas 0,013475 vs. 0,04: OK",L?sning
+25-04-24,91933567,GPT,Verify GPT,WaterTemp,Fat,Pr?ver en gentest,Fejler
+25-04-24,91933567,GPT,Verify GPT,WaterTemp,Fat,"Pre heater ligger pÜ 48 grader i FSS, og ikke 42. Varmelegeme defekt.",Skiftet preheater
+26-04-24,91933200,Basic,Initial ID chip,,Fat,V10 valve inicial regist.ID chip,Ledning i stik rettet
+26-04-24,91933567,5 Mëlk,Verify 5mëlk,Trans,Fat,"FatTrans 0,04175 B2024-16 Gentaget test eft. Cuv. + detector tjek B2024-17: OK",Testet igen pÜ et andet mëlkesët
+26-04-24,91932985,5 Mëlk,Verify 5mëlk,Trans,fat,"Gentaget test B2024-16 FatTrans Meas 0,05178 vs 0,024",fejler
+26-04-24,91932985,5 Mëlk,Verify 5mëlk,Trans,Fat,"Cu. + detector tjek, afst?vet, moment spëndt. Testet igen B2024-17: OK",Testet igen pÜ et andet mëlkesët
+29-04-24,91932985,M. Conductivity,Measure Cond.,,Fat,For lav conductiviy under Zero setting. Skiftet Conductivity module: OK,Skiftet Conductivity modul
+29-04-24,91933258,GPT,Measure GPT,,,"Zero pip. registrerer ikke Zero vësken. ""Motioneret"" stik i PCB connector: OK",l?sning
+30-04-24,91933895,Basic,Initial ID chip,,ID chip,valve 1+2+3+4+9+10,Ledning i stik rettet
+30-04-24,91933895,Basic,Flow System Check,,,"Ethernetkabel ikke monteret i ctrprint. Kunne ikke fÜ forbindelse til NOVA ""connecting""",Kabel ikke monteret
+30-04-24,91933302,Basic,Flow System Check,,,Skiftet BPV,L?sning
+30-04-24,91933334,GPT,Verify GPT,Protein,Cream_Rep,Vërdi for h?j,Fejler
+30-04-24,91933302,GPT,Verify GPT,WaterTemp,,Vërdi for h?j,Fejler
+30-04-24,91933302,GPT,Verify GPT,WaterTemp,,"Pre heater ligger pÜ 48 grader i FSS, og ikke 42. NTC temp. f?ler defekt.",Skiftet preheater
+01-05-24,91933334,GPT,Verify GPT,Protein,Cream_Rep,Gentestet,L?sning
+01-05-24,91933334,5 Mëlk,Verify 5mëlk,Trans,Fat,Vërdi for h?j,Fejler
+01-05-24,91933334,5 Mëlk,Verify 5mëlk,Trans,Fat,Gentestet,Ledning i stik rettet
+02-05-24,91933451,Basic,Initial ID chip,,Fat,Valve 4,Ledning i stik rettet
+02-05-24,91933302,GPT,GPT,Verify GPT,fat,"Pre heater ligger pÜ 48 grader i FSS, og ikke 42. NTC temp. f?ler defekt.",Skiftet preheater
+02-05-24,91933451,GPT,,,Fat,Slange ikke spëndt,Slanger ikke spëndt
+02-05-24,91933451,GPT,,,Fat,PCB defekt,Skiftet Zynq PCB
+02-05-24,91933302,5 Mëlk,Verify 5mëlk,Trans,Fat,Gentaget test B2024-17 ,L?sning
+02-05-24,91933528,GPT,Verify GPT,WaterTemp,,"Pre heater ligger pÜ 48 grader i FSS, og ikke 42. NTC temp. f?ler defekt.",Skiftet preheater
+06-05-24,91933305,5 Mëlk,Verify 5mëlk,Trans,Fat,fat trans for h?j,Testet igen
+06-05-24,91933874,Prepare,Firmware,,,manglede forbindelse og control pcb skiftet.,L?sning
+06-05-24,91933874,Basic,Flow System Check,,,"Kabel pÜ sample pipette ikke klikket i stikhus ,rattet.",Skiftet kabel
+06-05-24,91933874,Basic,Initial ID chip,,ID chip,Id chip fejl pÜ sampl pipette .Nye stikben monteret.,L?sning
+06-05-24,91933932,Prepare,Firmware,connection problem,connection problem,Kan ikke opdaterer firmwaren,Nyt topprint pÜ Leda
+06-05-24,91933963,GPT,Measure GPT,,,"Fejl pÜ sampl pipette assy ,Skiftet.",L?sning
+10-05-24,91933984,5 Mëlk,Verify 5mëlk,Trans,Fat,gentage test B2024-18,L?sning
+10-05-24,91934123,Basic,Flow System Check,,,Leak ny filterstick,L?sning
+10-05-24,91934123,Basic,Flow System Check,,,stik rettet valve 2,
+10-05-24,91934123,GPT,Verify GPT,WaterTemp,,"Preheater ligger pÜ 50 grader, NTC temp. f?ler defekt.",Skiftet preheater
+10-05-24,91934234,Basic,Initial ID chip,,ID chip,"Valve 9 Lëses ikke, ny stikben",L?sning
+10-05-24,91934234,STD,Verify STD,GlycCorr,GlycCorr,,
+10-05-24,91934234,STD,Verify STD,GlycSlope+GlycCorr,,Flow System M1 part A minor leak has been detected. Zero setting failed.,Skiftet cuvette
+13-05-24,91934199,Basic,Flow System Check,,ID chip,Valve 3. Ny stikben 2 gang skiftet. Skiftet ventil 60086575,L?sning
+13-05-24,91934234,U. Conductivity,Initial ID chip,ID chip,,Valve 10. Ny 2 stk stikben.,L?sning
+13-05-24,91930366,GPT,Verify GPT,WaterDiff,,Skiftet Zero,Fejler
+13-05-24,91930366,GPT,Verify GPT,Protein,Milk_Rep,skiftet detector,Fejler
+14-05-24,91934199,GPT,Verify GPT,Protein,Milk_Rep,,Fejler
+14-05-24,91934199,GPT,Verify GPT,Lactose,Cream_Rep,,Fejler
+14-05-24,91934235,Basic,Fans Test,connection problem,,Centerfan virker ikke. Skift af centerfan,L?sning
+14-05-24,91934235,Basic,Fans Test,connection problem,,Blëser kabel til IFU sad det forkerte sted,Ledning i stik rettet
+14-05-24,91930366,GPT,Verify GPT,WaterDiff,WaterDrift,skiftet kuvette,Fejler
+15-05-24,91934235,GPT,,,zerosettings,"kan ikke k?re zero setting, den stÜr bare og (klikker) og genstarter instrumentet driver modul not ready",Skiftet BPV
+15-05-24,91934199,GPT,Verify GPT,Protein,Milk_Rep,Testet igen.,L?sning
+15-05-24,91930366,GPT,Measure GPT,,,Detector varmer ikke. k?rt performance test pÜ leda+skiftet kabel pÜ detector,
+15-05-24,91934199,5 Mëlk,Verify 5mëlk,Trans,Fat,"Fejl pÜ 5mëlk B2024-18,B2024-19",
+15-05-24,91934235,GPT,Calculate GPT,WaterTemp,,Skiftet zero,L?sning
+21-05-24,91933932,Prepare,Firmware,connection problem,,"Ingen forbindelse til UUT. CAN bus blev blokeret af fejl pÜ Driver PCB. Skiftet, OK.",Skiftet driver PCB
+21-05-24,91933932,Basic,Visuel inspektion,ID chip,,Intet lys i LED for V3 og V5. Crimpfejl pÜ ID chips. Nye stikben monteret: OK,Ledning i stik rettet
+21-05-24,91933932,GPT,Verify GPT,WaterDiff,WaterTemp,Fejlede GPT. Preheater temperaturer var for h?je (NTC f?ler fejl). ,L?sning
+21-05-24,91933932,GPT,Verify GPT,WaterDiff,WaterTemp,Skiftet Preheater og gentaget test,
+22-05-24,91934628,GPT,Verify GPT,Protein,Cream_Rep,Fejlede 3 gang .Skiftet cuvette.,L?sning
+22-05-24,91934724,5 Mëlk,Verify 5mëlk,,,Fejl pÜ 5 mëlk B2024-19 . Det er ikke godkent.,
+23-05-24,91934628,5 Mëlk,Verify 5mëlk,Trans,Fat,Skiftet detector og linse.testet 5 mëlk igen.,L?sning
+23-05-24,91934604,5 Mëlk,Verify 5mëlk,Trans,Fat,"FAT TRANS, Cuvette renset",
+24-05-24,91934604,5 Mëlk,Verify 5mëlk,Trans,fat,Slanger byttet rundt pÜ cuvette,Slanger byttet
+24-05-24,91934604,5 Mëlk,,,Protein+Lactose+SNF,"BPV larmer, BPV skiftet",
+28-05-24,91934604,STD,,,Oil Rep+Glycslope,Slanger byttet rundt pÜ cuvette,Slanger byttet
+28-05-24,91934944,5 Mëlk,Verify 5mëlk,Trans,Protein+Lactose+SNF,Skiftet detector og linse.,L?sning
+29-05-24,91934944,STD,Verify STD,GlycSlope+GlycCorr,,Testet igen.,L?sning
+29-05-24,91935064,Basic,,ID chip,,"Valve 1 fejl,stikben skiftet.",L?sning
+31-05-24,91935048,5 Mëlk,Verify 5mëlk,human error,,"Fejlede i Protein trans,fattrans+snftrans. Cuvette renset for st?v, spejl i IFU vendte forkert+ LÜsering var ikke spëndt",
+04-06-24,91935192,GPT,Verify GPT,human error,Cream_Rep,"Forkert ventil monteret pÜ M1 pumpe, pumpe udskiftet",L?sning
+04-06-24,91935164,GPT,Verify GPT,human error,Fat rep-cream+Tsrep-cream,"Forkert ventil monteret pÜ M1 pumpe, pumpe udskiftet",L?sning
+04-06-24,91935192,GPT,Verify GPT,WaterDiff,,Skift af zero og clean,L?sning
+04-06-24,91935347,Basic,Flow System Check,ID chip,,Valve 9 fejl. Skiftet stikben 2 stk.,Testet igen
+06-06-24,91935192,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein+Lactose+TS+SNF,fejler pÜ allt,Testet igen pÜ et andet mëlkesët
+06-06-24,91934883,5 Mëlk,Verify 5mëlk,Trans,Protein+SNF,,
+06-06-24,91935164,5 Mëlk,Verify 5mëlk,Trans,Protein+SNF,5Mëlk B2024-23 fejl testet igen B2024-24     OK,L?sning
+06-06-24,91935280,GPT,Verify GPT,Fat+Protein+Lactose+TS+SNF,,"Fejler pÜ allt. Ny detctor,filterstick,cuvette og linse.",L?sning
+06-06-24,91935280,5 Mëlk,Verify 5mëlk,Trans,SNF,B2024-23  L?sning 2024-24,L?sning
+07-06-24,91935615,GPT,Verify GPT,WaterDiff,,Skiftet Zero og Clean.,Testet igen
+07-06-24,91935615,GPT,Verify GPT,WaterDiff,,Fejler igen.,Testet igen
+07-06-24,91935615,GPT,Verify GPT,Lactose,Milk_Rep,Testet igen.OK.,Skiftet filterstick
+11-06-24,91935662,GPT,Measure GPT,,Error component,"Melder fejl under GPT, Driver modul not ready, Skiftet IFU",L?sning
+11-06-24,91935525,5 Mëlk,Verify 5mëlk,Trans,Fat,Testet igen 5mëlk B2024-24,L?sning
+12-06-24,91935347,U. Conductivity,Initial ID chip,,Fat+Lactose+SNF,Valve 10 fejl.Skiftet stikben .,L?sning
+13-06-24,91935771,GPT,Verify GPT,Lactose,Cream_Rep,Fejler igen.,
+13-06-24,91935771,GPT,Verify GPT,Protein,Cream_Rep,Reng?r cuvette. ,Testet igen
+14-06-24,91935771,STD,Measure STD,,, Skiftet BPV .Problem med membrane.,L?sning
+17-06-24,91935662,GPT,Verify GPT,WaterDiff,,Testet igen,L?sning
+18-06-24,91935833,GPT,Power up Instrument,Power up instrument,,Skiftet detector.testet igen performans test.,L?sning
+19-06-24,,M. Conductivity,Verify Cond. connection,SampleCond,,"Conduktivity fejl Meas 909,023 vs Limit high Meas903,37.",Skiftet Conductivity modul
+20-06-24,91936093,GPT,Power up Instrument,connection problem,,Restartet comp.,Testet igen
+24-06-24,91936346,Basic,Flow System Check,,Error component,"Defekt slange, udskiftet",L?sning
+25-06-24,91936284,GPT,Power up Instrument,,human error,Ledning rettet pÜ pipetten.Sampl pipette fejl.,L?sning
+25-06-24,91936284,5 Mëlk,Verify 5mëlk,Trans,Fat+Lactose+SNF,"5Mëlk fejler B2024-25,B2024-24.",5 mëlken ikke godkendt endnu
+25-06-24,91936450,Basic,Initial ID chip,ID chip,,"Fejl pÜ ventil nr2,skiftet stikben",L?sning
+26-06-24,91936450,GPT,Verify GPT,Protein,Milk_Rep,Fejler igen.,Testet igen
+26-06-24,91936450,GPT,Verify GPT,Protein,Milk_Rep,Skiftet linse og cuvette.,Testet igen
+26-06-24,91936450,GPT,Verify GPT,WaterDiff,,Fejler igen,Testet igen
+26-06-24,91936450,GPT,Verify GPT,Lactose,Cream_Rep,Testet igen.,L?sning
+27-06-24,91936514,5 Mëlk,Verify 5mëlk,Trans,Fat,Skiftet detecor,L?sning
+01-07-24,91936554,Basic,Visuel inspektion,,,Skiftet PCB .Fejl pÜ JP24,L?sning
+01-07-24,91936554,GPT,Verify GPT,Lactose,Milk_Rep,Testet igen.Fejl.,Testet igen
+01-07-24,91936554,GPT,Verify GPT,Protein,Cream_Rep,Renset cuvette.,L?sning
+02-07-24,91936561,GPT,Verify GPT,Protein,Cream_Rep, Fejler igen.,Testet igen
+02-07-24,91936561,GPT,Verify GPT,WaterDiff,Cream+Milk_Rep,Skiftet filterstick og renset cuvette.,L?sning
+03-07-24,91936913,Basic,Initial ID chip,,,jp7-manifold fan idchip defekt,Ledning i stik rettet
+04-07-24,91936913,Basic,Pipette Test,,,"pipette kommer ikke ud, rettet",L?sning
+04-07-24,91936913,Basic,Flow System Check,,,"Pipette heater cable, ny samplepipette monteret, ogsÜ den skulle justeres",L?sning
+04-07-24,91936934,Basic,Visuel inspektion,Temp,,"Detector varmer ikke, skiftet dector",L?sning
+12-07-24,91937381,M. Conductivity,,,,"Kold conductivity, skift af cabel",L?sning
+16-07-24,91937308,Basic,Pipette Test,,,Pippette kommer ikke ud.,Justeret
+25-07-24,91937998,Prepare,Firmware,,,"manglede forbindelse, ny PCB  NAT (1052407)",L?sning
+29-07-24,91937488,5 Mëlk,Verify 5mëlk,Trans,Protein+SNF,Testet GPT og STD igen.,L?sning
+02-08-24,91938211,Basic,Flow System Check,,Error component,"Defekt tube60074456,udskiftet",L?sning
+02-08-24,91935934,5 Mëlk,Verify 5mëlk,Trans,Fat,Testet 5mëlkB2024-31,L?sning
+05-08-24,91938267,M. Conductivity,Calculate Cond.,SampleCond,,Fejler SampleCond.Skiftet clean og zero og testet igen.,L?sning
+13-08-24,91938706,GPT,Verify GPT,,WaterDiff,Renset cuvette og skiftet zero.Testet igen.,L?sning
+15-08-24,91936885,GPT,Verify GPT,,WaterTemp,,
+16-08-24,91938706,M. Conductivity,Verify Cond. connection,SampleCond,,"Meas910,7106 vsLimitHigh 910,3447.Skiftet clean og zero .testet igen",L?sning
+20-08-24,91938933,5 Mëlk,Verify 5mëlk,Trans,Protein,Renset cuvette.,L?sning
+21-08-24,91939133,GPT,Verify GPT,WaterDiff,Milk_Rep,Renset cuvette af fingeraftryk.Testet igen.,Fejler
+22-08-24,91939133,GPT,Verify GPT,WaterDiff,,Skiftet clean og zero.Testet igen.,L?sning
+22-08-24,91939180,GPT,Verify GPT,Protein,Cream_Rep,Skiftet clean og zero.Testet igen.,L?sning
+23-08-24,91929891,GPT,Verify GPT,WaterDiff,Milk_Rep,Skiftet zero og testet igen.,L?sning
+27-08-24,91939462,GPT,Verify GPT,Protein,Cream_Rep,Skiftet cuvette .,Fejler
+27-08-24,91939349,Basic,Module Check,ID chip,,Stikben sad l?st (gabte) i ventil 9,Ledning i stik rettet
+27-08-24,91939462,GPT,Verify GPT,Lactose,Cream_Rep,Testet igen,Testet igen
+28-08-24,91939462,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein+TS,Skiftet detecor.,Testet igen
+28-08-24,91939462,5 Mëlk,Verify 5mëlk,Trans,Protein,Skiftet linse.,Fejler
+28-08-24,91939349,GPT,Verify GPT,Lactose,,"Cuvette renset, testet igen",L?sning
+29-08-24,91939462,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein,Testet igen,Fejler
+29-08-24,91939496,Basic,Initial ID chip,,,Sampl pipette fejl.ID chip pÜ psb fejl,Skiftet pipette
+29-08-24,91939462,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein,Skiftet IFU,L?sning
+04-09-24,91939911,Basic,Module Check,ID chip,,stikben sad l?st gabte i ventil 9,Ledning i stik rettet
+04-09-24,91939911,Basic,Module Check,,,pipette rettet,L?sning
+05-09-24,91939976,Basic,,,,Blëser ledning sad forkert jp7 og jp8 HUSK at genstarte instrumentet efter ombytning af ledningerne,Ledning i stik rettet
+09-09-24,91940013,5 Mëlk,Verify 5mëlk,Trans,Fat+Protein+TS,Skiftet IR SOURS,L?sning
+09-09-24,91939998,M. Conductivity,Chassis ID,connection problem,,Skiftet Cable Chas-ID Psb,L?sning
+09-09-24,91939998,M. Conductivity,Verify Cond.,connection problem,,"Skiftet NAT Zyng Psb,Skiftet ethernet kabel",Testet igen
+09-09-24,91940013,STD,Verify STD,GlycCorr,,Testet igen.,L?sning
+10-09-24,91939968,STD,Verify STD,GlycCorr,,Skiftet clean. Testet igen.,L?sning
+10-09-24,91940230,5 Mëlk,Calculate 5mëlk,Fat+Lactose+SNF,Trans,rensat cuvette,L?sning
+17-09-24,91940430,GPT,Measure GPT,WaterDrift,WaterDiff,Skiftet clean og zero.Testet igen.,L?sning
+17-09-24,91940430,GPT,Power up Instrument,connection problem,,Skiftet cable Chas-ID Psb,L?sning
+19-09-24,91940701,Prepare,Power up Instrument,connection problem,,Bytt lilla print 1052407 pÜ CTR.,L?sning
+19-09-24,91940606,GPT,Verify GPT,WaterTemp,,Defekt preheaterf?ler- skiftet,L?sning
+19-09-24,91940606,Basic,Module Check,connection problem,,knëkket ledning pÜ pÜ blëser- stikben skiftet,Ledning knëkket
+20-09-24,91940658,Basic,Visuel inspektion,,connection problem,stik sad ikke i - rettet,Ledning i stik rettet
+24-09-24,91940640,GPT,Verify GPT,Lactose,,cream lactose,Testet igen
+24-09-24,91940958,5 Mëlk,Verify 5mëlk,Trans,Protein,Bytt lins och detektor.,L?sning
+25-09-24,91940794,5 Mëlk,Verify 5mëlk,Trans,Fat,"Fejler pÜ fatTrans, skiftet IFU IFUnr 91940467 muligivis defekt",Skiftet linse og detektor.
+25-09-24,91941040,GPT,Calculate GPT,Protein,,Bytt cuvette.,L?sning
+27-09-24,91940794,STD,Verify STD,Oil Rep,,Fejl pÜ olirep. filterstick sad l?st,
+30-09-24,91940964,5 Mëlk,Verify 5mëlk,Trans,Fat,Skiftet linse og detector.,L?sning
+30-09-24,91940964,STD,Verify STD,GlycCorr,,Skiftet clean og zero .Testet igen.,L?sning
+30-09-24,91941012,5 Mëlk,Verify 5mëlk,Trans,Fat,Skiftet linse og detector. x2,L?sning
+02-10-24,91941042,M. Conductivity,Verify Cond.,SampleCond,,Skiftet clean og zero.,L?sning
+03-10-24,91941360,GPT,Verify GPT,Fat,Milk_Rep,,
+07-10-24,91941434,GPT,Verify GPT,Protein,Protein,Cuvette renset,L?sning
+08-10-24,91941517,,Verify 5mëlk,Fat,Trans,"Fejler pÜ fattrans, renset cuvette",L?sning
+10-10-24,91941621,GPT,Module Check,,,"2 ventil ledninger var byttet om, fejlede pÜ zero settings",L?sning
+10-10-24,91941621,GPT,Verify GPT,FPSignalWater,,"Fejler pÜ proteinrep, lactoserep, milkasm og fpsignalwater, ",
+11-10-24,91941722,STD,Measure STD,connection problem,connection,Under ZERO setting af instr. melder IFU fejl. Udskiftning af detector .,L?sning
+11-10-24,91930277,M. Conductivity,Measure Cond.,,,"Fejlede pÜ ""Clean liquid conductivity too low. Genstart af instrument. ADC'en kan ikke lide at man ikke slukker insturmentet f?r der kobles til, og lukker derfor ned.",Genstart af instrument
+16-10-24,91941689,,Verify 5mëlk,Fat,,Skiftet cuvette,Fejler
+16-10-24,91941689,,Verify 5mëlk,Trans,Fet,Skiftet detector,L?sning
+16-10-24,91941962,Prepare,Firmware,,Drv Print kan ikke opdateras,"Software kommer ikke ornligt pÜ Driver PCB, led kommer kun op i nr 2",Ny DRV print
+16-10-24,91941760,Prepare,Firmware,,instrumnet opdatering failar,"ingen kontakt med instrumentet, kan ikke opdatera instrumentet",Skifta Zynq print
+18-10-24,91942154,,Verify 5mëlk,Protein,Trans,Testet igen 5Mëlk B2024-42,L?sning
+18-10-24,91942154,,Chassis ID,human error,,Mangler lille sort kabel.,
+22-10-24,91942375,,Verify 5 mëlk,Trans,"Fet,protein,TS",Skiftet detector.,L?sning
+24-10-24,91942555,5 mëlk,Verify 5 mëlk,Fet Trans,Fet,Testet igen 5mëlk ,L?sning
+29-10-24,91942822,5mëlk,Verify 5 mëlk,Fet Trans,,Skiftet cuvette ,Fejler
+29-10-24,91942822,5 mëlk,Verify 5 mëlk,Fet Trans,,Skiftet detector,L?sning
+29-10-24,91942777,5 mëlk,Verify 5 mëlk,Fet Trans,,Skiftet detector,L?sning
+04-11-24,91943096,5 mëlk,Verify 5 mëlk,Fet Trans,Fet Trans,Skiftet cuvette ,L?sning
+07-11-24,91943260,,,ID chip,ID chip,"Kabel jp 28 pÜ samplepipette defekt ID-chip, skiftet samplepipette",L?sning
+07-11-24,91942940,,Verify 5mëlk,Fat,Trans,Renser cuvette og tester 5mëlkB2024-44 igen,L?sning
+07-11-24,91943260,,,human error,,"Viste luft i systemet under flowtest Slange ikke monteret korrekt pÜ m1 pumpe,",Slanger ikke spëndt
+07-11-24,91943260,5 mëlk,Verify 5mëlk,Fat,,"Fejler pÜ fattrans, ny cuvette",L?sning
+08-11-24,91943202,,Power up Instrument,connection problem,,Skiftet pcb,L?sning
+12-11-24,91943593,,Verify GPT,Protein,Gentest,"k?rt 2 gange fejler pÜ proteinrep milk, skiftet detector",L?sning
+12-11-24,91943495,,Verify 5mëlk,Protein+Lactose+TS+SNF,,Testet igen 5mëlkB2024-45,L?sning
+18-11-24,91943736,,Module Check,human error,,"Stik i klemme pÜ ifu fan, ny fan monteret",Ledning knëkket
+18-11-24,91942129,,,,,"cond. for h?j vërdi pr?vet 2 gange, ny cond monteret",L?sning
+20-11-24,91944021,,Flow System Check,human error,,Kabler V1ogV2 pÜ M1 pumppe forkert tilsluttet.Rettet kabler og testet igen .,L?sning
+21-11-24,91943910,,Calculate GPT,WaterTemp,Gentest,"Testet igen, da overgangen mellem mëlk og fl?de ikke fungeret ordentligt",L?sning
+22-11-24,91944227,,Verify Cond.,SampleCond,Gentest,Skiftet conduktivity modul.,L?sning
+26-11-24,91944059,,Verify 5mëlk,Protein+TS,Fat+Protein+SNF,Skiftet detector,L?sning
+27-11-24,91944614,,Calculate Cond.,SampleCond,,Skiftet clean og zero.Testet igen.,L?sning
+27-11-24,91944584,,Verify GPT,Protein+SNF,Cream+Milk_Rep,"ProteinRep_milk, SNFRep_milk, ProteinREp_cream, Milk ASM  FAIL., ny detector och cuvette",Skiftet detektor
+29-11-24,91944395,,Verify GPT,Protein+Lactose+TS+SNF,,Testet igen,L?sning
+01-12-24,91944397,,Verify STD,WaterRep,,Testet igen,L?sning
+01-12-24,91944818,,Verify GPT,"WaterRep, WaterDrift, WaterDifference, FatRep Water, ProteinRep Water, LactoseRep Water, TSRep Water, SNFRep Water, FatRep milk",WaterDrift,Testet igen,L?sning
+02-12-24,91944273,,Verify 5mëlk,Protein,Trans,skiftet detector,Skiftet detektor
+03-12-24,91944789,,Verify GPT,WaterRep,WaterDrift,Skiftet zero og testet igen,L?sning
+03-12-24,91944876,,Fans Test,human error,,Skiftet blëser.,L?sning
+05-12-24,91944855,Prepare,Verify Cond. connection,Error component,,sensor defekt pÜ Cond. venter pÜ rep da vi ikke har flere pÜ lager,
+05-12-24,91944992,,Pipette Test,,,"Defekt kabel pÜ pipette, kabel udskiftet",Skiftet kabel
+05-12-24,91945063,,Verify GPT,WaterDrift,,Testet igen GPT.,L?sning
+05-12-24,91944992,,Verify GPT,"WaterRep, WaterDrift, WaterDifference, FatRep Water, ProteinRep Water, LactoseRep Water, TSRep Water, SNFRep Water, FatRep milk",,,
+08-12-24,91945171,,Initial ID chip,,,Skiftet sampl pipette.,L?sning
+08-12-24,91945171,,Flow System Check,human error,,Skiftet senzor kabek (knëkket).M1PUMP,L?sning
+09-12-24,91944949,,Module Check,Error component,Error component,"Defekt port pÜ CTRprint, skift af print",
+10-12-24,91945171,,Verify GPT,WaterDrift,WaterRep,Skiftet detector.,Skiftet detektor
+10-12-24,91945308,,Verify GPT,Milk_Rep,Fat,Skiftet detector.,Skiftet detektor
+10-12-24,91945308,,Verify 5mëlk,Fat,Trans,5mëlkB2024-49 var dÜrlig og testet igen 5mëlkB2024-50,L?sning
+11-12-24,91945380,,Module Check,Error component,,"Pipette kunne ikke komme ud, s?geblad kunne ikke bruges da dims sad fast pÜ motorpal. ny sample pipette monteret",L?sning
+11-12-24,91945380,,Measure GPT,Error component,,Pressuresensor activatet. skifter h-stage,L?sning
+11-12-24,91945479,,Flow System Check,Error component,,Connection problemer. skiftet lille sorte kabel,L?sning
+11-12-24,91945380,,Calculate GPT,WaterDiff,,fejler pÜ protein rep og waterdiff.  gentest,L?sning
+11-12-24,91944984,,Calculate 5mëlk,Fat,Trans,"FatTrans i 5mëlk, bytt flera detector og lins",Skiftet linse og detektor.
+13-12-24,91945564,,Verify GPT,Protein,Milk_Rep,Testet igen GPT,L?sning
+16-12-24,91945772,,Measure Cond.,,,Defekt cond. skiftet til ny,L?sning
+16-12-24,91945564,,Verify 5mëlk,Protein,Trans,Skiftet detector og linse.,L?sning
+17-12-24,91945677,,Measure GPT,,,"Kold detector, genstart.",L?sning
+17-12-24,91945677,,Verify GPT,WaterDiff,,Skift af clean og zero. gentest,L?sning
+17-12-24,91945677,,Measure Cond.,,,Defekt cond. Varmede ikke. skiftet til ny,L?sning
+17-12-24,91945885,,Verify 5mëlk,Protein+TS,Trans,Skiftet linse og detector.,Fejler
+17-12-24,91945885,,Verify GPT,Lactose,Cream_Rep,Skiftet H-stage,L?sning
+18-12-24,91945885,,Verify 5mëlk,Protein,Trans,Skiftet cuvette.,
+18-12-24,91945762,,Verify GPT,WaterDiff,,"Fejl pÜ GPT GlycPeak2 ,Skiftet detector og cuvette",
+19-12-24,91945885,,Verify 5mëlk,Protein,Trans,Protein trans fail skiftat Ifu,Skiftet IFU
+19-12-24,91945967,,Flow System Check,,,Modstand for h?j i motor og piston pÜ M2. Flowtest k?rt igen,L?sning
+02-01-25,91946074,,Module Check,,,"Preheater for varm, udskiftet til ny",Skiftet preheater
+02-01-25,91946074,,Verify 5mëlk,,Trans,"FEjler SNFtrans, skiftet detector hjalp ikke, renset cuvette hjalp ikke, skift af linse",Fejler
+03-01-25,91946073,,Verify GPT,Cream+Milk_Rep,,fejler pÜ protein cream og protein mëlk. pr?ver at k?re igen,Testet igen
+08-01-25,91946074,,Verify 5mëlk,,,"FetTrans 0,02435 (0-0,024),  SNFTrans 0,05224(0-0,043) Skiftat Lins+ Detektor (Gamal Melk ? (uge 51)",
+10-01-25,91946074,,Verify 5mëlk,Trans,Fat+SNF Trans,"FetTrans 0,022527 (0-0,024),  SNFTrans 0,05137(0-0,043) VÑntar pÜ Ny Melk godkÑnande",
+13-01-25,91946645,,Verify 5mëlk,Trans,Fat+SNF Trans,"SNF Trans 0,048 (0-0,043), l?sning ny 5 mëlkeset",L?sning
+14-01-25,ACR  1854,,Step,Temp,Temp,"Preheater kan ikke varme op, orange lys pÜ driver pcb ved preheater og sample pipetter. Fejlen var en defekt zero pipette",
+17-01-25,91946091,,Verify GPT,Lactose,Milk_Rep,Skiftet zero og testet igen.,L?sning
+20-01-25,91946091,,Verify 5mëlk,Lactose,Trans,"Renset cuvette ,skiftet zero og testet igen 5mëlk B2025-03.",L?sning
+20-01-25,91946587,,Initial ID chip,human error,,"Fejl pÜ motor nr3 ,motor stik pÜ BPV manglede 2 stk kabler orange og sort .",Skiftet BPV
+21-01-25,91946587,,Verify GPT,Protein,Milk_Rep,"Renset cuvette ,skiftet clean og zero.Testet igen GPT test.",L?sning
+27-01-25,91947494,,Measure Cond.,,human error,Conuctivity kabel beskadiget.Skiftet kabel.,L?sning
+30-01-25,91947609,,Verify GPT,WaterDrift,,Skiftet clean og zero .Testet igen.,L?sning
+30-01-25,91947677,,Measure Cond.,,human error,"DÜrlig conuctivity modul ,dÜrlig  samling og lodning.Skiftet conductivity modul.",L?sning
+04-02-25,91947693,,Verify 5mëlk,Fat+Protein+SNF,Protein+Lactose+TS+SNF,Skiftet detector og linse.Renset cuvette .Testet igen5mëlk.,L?sning
+04-02-25,91947634,,Verify STD,GlycCorr,,Skiftet Pcb pÜ LEDA fejl pÜ stk.ben sÜ detec.kabel kan ikke varmer detec.og IFU.,L?sning
+06-02-25,91947661,,Measure GPT,human error,Milk_Rep,Forkert detector monteret pÜ IFU .Skiftet og testet igen.,L?sning
+11-02-25,91947782,,Verify 5mëlk,Fat+SNF Trans,,"FatTrans 0,03433 (0-0,024), ny cuvette 0,02934",
+11-02-25,91947782,,Verify 5mëlk,Fat+SNF Trans,,"  ny detector 0,0326",
+12-02-25,91947782,,Verify 5mëlk,Fat+SNF Trans,,"ny cuvette igen, ny lins",L?sning
+14-02-25,91948108,,Verify 5mëlk,Fat+Protein+SNF,Trans,"Renset cuvette,testet 5mëlk igen.",L?sning
+17-02-25,91948128,,Verify 5mëlk,Fat,Trans,Testet 5 mëlk B2025-06 igen.,L?sning
+18-02-25,91948021,,Verify GPT,Fat+Protein+SNF,Fat+Protein+SNF,"Water temp  fail , Ny  cuvett samma fail. Sist ny detector och linse.",L?sning
+20-02-25,91948274,,Verify 5mëlk,FAT,Trans,"Skiftet detector ,linse og cuvette.",Fejler
+20-02-25,91948274,,Verify 5mëlk,Fat,Trans,"Testet igen 5mëlk B2025-06 ,skiftet zero",L?sning
+24-02-25,91948801,,Verify Cond.,T1 Conductivity,T3 Conductivity,Fejl pÜ coductivity mod condT1 og condT3 (tempratur i sensor),Skiftet Conductivity modul. Fejler
+24-02-25,91948801,,Verify Cond.,,SampleCond,Skiftet conductivity modul.,Fejler
+24-02-25,91948801,,Verify Cond.,SampleCond,,Skiftet clean og zero.,L?sning
+24-02-25,91948802,,Verify 5mëlk,Protein,Trans,Skiftet clean og zero.Testet igen 5mëlk B2025-08.,
